@@ -6,7 +6,12 @@ export default class Game {
 
     }
 
-    playInColumn() {
+    playInColumn(index) {
+/*make an array of columns,
+ after looping thru array use and finding the correct index, 
+ call the add() on the index
+*/
+
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
         } else if (this.currentPlayer === 2) {
@@ -22,19 +27,20 @@ export default class Game {
     }
 }
 
-export class Column {
+export class Column extends Game{
     constructor() {
-
+        super(player1Name, player2Name, currentPlayer = 1)
         this.tokens = [null, null, null, null, null, null];
     }
 
-    add(playerNumber) {
+    add (currentPlayer) {
 
         for (let i = this.tokens.length - 1; i >= 0; i--) {
-
-
+            let playerPosition = this.tokens[i];
+            if (playerPosition === null){
+               return this.tokens.splice(i,1,currentPlayer);
+                }
         }
-
     }
 
     getTokenAt(rowPositionNumber) {
