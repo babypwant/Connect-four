@@ -22,3 +22,9 @@ export default class Game {
     }
 }
 
+export class Column{
+    constructor(tokens){
+        this.tokens = tokens;
+        this.tokenAxis = [];
+    }
+}
