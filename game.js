@@ -8,9 +8,9 @@ export default class Game {
 
     playInColumn() {
         if (this.currentPlayer === 1) {
-           return this.currentPlayer = 2;
-        } else if (this.currentPlayer === 2){
-          return  this.currentPlayer = 1;
+            return this.currentPlayer = 2;
+        } else if (this.currentPlayer === 2) {
+            return this.currentPlayer = 1;
         }
     }
 
@@ -22,9 +22,27 @@ export default class Game {
     }
 }
 
-export class Column{
-    constructor(tokens){
-        this.tokens = tokens;
-        this.tokenAxis = [];
+export class Column {
+    constructor() {
+
+        this.tokens = [null, null, null, null, null, null];
     }
+
+    add(playerNumber) {
+
+        for (let i = this.tokens.length - 1; i >= 0; i--) {
+
+
+        }
+
+    }
+
+    getTokenAt(rowPositionNumber) {
+
+        return this.tokens[rowPositionNumber]
+
+
+
+    }
+
 }
