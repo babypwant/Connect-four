@@ -13,16 +13,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             const gameButton = document.getElementById('new-game')
             gameButton.disabled = false;
-
-
         }
 
+    })
+    const player2 = document.getElementById('player-2-name')
+    player2.addEventListener('keyup', (event) => {
 
+        if (player1.value !== '' && player2.value !== '') {
 
-
+            const gameButton = document.getElementById('new-game')
+            gameButton.disabled = false;
+        }
 
     })
+    const gameButton = document.getElementById('new-game');
+    gameButton.addEventListener('click', (event) =>{
+        game = new Game{
+            constructor(player1Name, player2Name){
+                super(player1Name,player2Name)
 
+            }
+        }
+
+    })
 
 
 
