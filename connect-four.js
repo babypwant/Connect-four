@@ -3,39 +3,36 @@ import Game from './game.js'
 
 let game = undefined;
 
-function getName() {
-
-    return currentPlayer.value;
 
 
-}
 
 
 
 const updateUI = () => {
-//game.currentplayer is equal to 1 switch to red(which is player 2s color)
+    //game.currentplayer is equal to 1 switch to red(which is player 2s color)
     if (game === undefined) {
 
         const boardHolder = document.getElementById('board-holder')
         boardHolder.setAttribute('class', 'is-invisible');
 
     } else {
-        //set the inner html gamenameID to 'getName.value'
+        //set the inner html gamenameID to 'gameName.value'
 
         const boardHolder = document.getElementById('board-holder')
         boardHolder.removeAttribute('class', 'is-invisible');
-        const getName = document.getElementById('get-name');
-        getName.innerHTML = getName();
+        const gameName = document.getElementById('game-name');
+        let currentPlayer = game.getCurrentPlayer()
+        gameName.innerHTML = currentPlayer;
 
-    
-        if(getName.innerHTML === 1){
+
+        if (gameName.innerHTML === 1) {
             const clickTargets = document.getElementById('click-targets');
             clickTargets.setAttribute('class', 'red')
-        }else{
+        } else {
             const clickTargets = document.getElementById('click-targets');
             clickTargets.setAttribute('class', 'black')
         }
-        
+
 
     }
 

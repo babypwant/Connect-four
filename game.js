@@ -14,5 +14,11 @@ export default class Game {
         }
     }
 
+    getCurrentPlayer() {
+
+        return this.currentPlayer;
+
+
+    }
 }
 
