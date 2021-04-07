@@ -28,13 +28,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
     const gameButton = document.getElementById('new-game');
     gameButton.addEventListener('click', (event) =>{
-        game = new Game{
-            constructor(player1Name, player2Name){
-                super(player1Name,player2Name)
-
-            }
-        }
-
+        game = new Game(player1.value,player2.value)
+        console.log(game);
     })
 
 
