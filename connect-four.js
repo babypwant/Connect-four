@@ -22,15 +22,21 @@ const updateUI = () => {
         boardHolder.removeAttribute('class', 'is-invisible');
         const gameName = document.getElementById('game-name');
         let currentPlayer = game.getCurrentPlayer()
+        console.log(currentPlayer);
         gameName.innerHTML = currentPlayer;
 
 
         if (gameName.innerHTML === 1) {
-            const clickTargets = document.getElementById('click-targets');
-            clickTargets.setAttribute('class', 'red')
-        } else {
-            const clickTargets = document.getElementById('click-targets');
+            console.log(1)
+            let clickTargets = document.getElementById('click-targets');
             clickTargets.setAttribute('class', 'black')
+
+        } else {
+            console.log(2)
+            let clickTargets = document.getElementById('click-targets');
+
+            clickTargets.setAttribute('class', 'red');
+
         }
 
 
