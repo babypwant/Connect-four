@@ -7,10 +7,10 @@ export default class Game {
     }
 
     playInColumn() {
-        if (currentPlayer === 1) {
-            currentPlayer = 2;
+        if (this.currentPlayer === 1) {
+            this.currentPlayer = 2;
         } else {
-            currentPlayer = 1;
+            this.currentPlayer = 1;
         }
     }
 
