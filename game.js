@@ -8,9 +8,9 @@ export default class Game {
 
     playInColumn() {
         if (this.currentPlayer === 1) {
-            this.currentPlayer = 2;
-        } else {
-            this.currentPlayer = 1;
+           return this.currentPlayer = 2;
+        } else if (this.currentPlayer === 2){
+          return  this.currentPlayer = 1;
         }
     }
 
