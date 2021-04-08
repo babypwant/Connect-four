@@ -3,14 +3,18 @@ export class Game {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         this.currentPlayer = currentPlayer;
-
+        this.Column = [new Column(), new Column(), new Column(),
+        new Column(), new Column(), new Column(),
+        new Column()]
     }
 
+
+
     playInColumn(index) {
-/*make an array of columns,
- after looping thru array use and finding the correct index, 
- call the add() on the index
-*/
+        /*make an array of columns,
+         after looping thru array use and finding the correct index, 
+         call the add() on the index
+        */
 
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
@@ -25,26 +29,33 @@ export class Game {
 
 
     }
+
+    getTokenAt(columnPositionNumber, rowPositionNumber) {
+
+        return this.Column[columnPositionNumber].getTokenAt(rowPositionNumber)
+
+    }
 }
 
-export class Column extends Game{
+export class Column {
     constructor() {
-        super(player1Name, player2Name, currentPlayer = 1)
+
         this.tokens = [null, null, null, null, null, null];
+
     }
 
-    add (currentPlayer) {
+    add(currentPlayer) {
 
         for (let i = this.tokens.length - 1; i >= 0; i--) {
             let playerPosition = this.tokens[i];
-            if (playerPosition === null){
-               return this.tokens.splice(i,1,currentPlayer);
-                }
+            if (playerPosition === null) {
+                return this.tokens.splice(i, 1, currentPlayer);
+            }
         }
     }
 
     getTokenAt(rowPositionNumber) {
-        
+
         return this.tokens[rowPositionNumber]
 
     }

@@ -1,4 +1,4 @@
-import {Game, Column} from './game.js'
+import { Game, Column } from './game.js'
 
 
 let game = undefined;
@@ -13,15 +13,21 @@ const updateUI = () => {
         for (let j = 0; j <= 6; j++) {
             let square = document.getElementById(`square-${i}-${j}`)
             square.innerHTML = '';
-            if (Column.getTokenAt(game.currentPlayer) === 1) {
+
+            //Call it on getToeknAt from game class
+
+            //the for loop is letting us place the value of a black token
+            //or red in the square
+
+            if (game.getTokenAt(j, i) === 1) {
                 const blackToken = document.createElement('div')
-                blackToken.setAttribute('class', 'token');
-                blackToken.setAttribute('class', 'black');
+                blackToken.setAttribute('class', 'token black');
+
                 square.appendChild(blackToken)
-            } else {
+            } else if (game.getTokenAt(j, i) === 2) {
                 const redToken = document.createElement('div')
-                redToken.setAttribute('class', 'token');
-                redToken.setAttribute('class', 'red');
+                redToken.setAttribute('class', 'token red');
+
                 square.appendChild(redToken);
             }
         }
@@ -40,17 +46,17 @@ const updateUI = () => {
         boardHolder.removeAttribute('class', 'is-invisible');
         const gameName = document.getElementById('game-name');
         let currentPlayer = game.getCurrentPlayer()
-        
+
         gameName.innerHTML = currentPlayer;
 
 
         if (currentPlayer === 2) {
-         
+
             let clickTargets = document.getElementById('click-targets');
             clickTargets.setAttribute('class', 'black')
 
         } else {
-    
+
             let clickTargets = document.getElementById('click-targets');
 
             clickTargets.setAttribute('class', 'red');
@@ -74,7 +80,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     clickTargets.addEventListener('click', (event) => {
 
         game.playInColumn();
-        
+
         updateUI();
 
 
