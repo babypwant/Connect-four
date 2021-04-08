@@ -15,7 +15,7 @@ export class Game {
          after looping thru array use and finding the correct index, 
          call the add() on the index
         */
-       let currentColumn = this.column[index];
+        let currentColumn = this.Column[index];
 
         currentColumn.add(this.currentPlayer);
         if (this.currentPlayer === 1) {
@@ -46,12 +46,40 @@ export class Column {
 
     }
 
+    isFull() {
+
+        for (let i = 0; i < this.tokens; i++) {
+
+
+            if (this.tokens[i] !== null) {
+
+                
+
+            }
+
+        }
+
+        return true;
+
+    }
+
+    isColumnFull(Columnindex) {
+
+        isFull
+
+    }
+
     add(currentPlayer) {
 
         for (let i = this.tokens.length - 1; i >= 0; i--) {
             let playerPosition = this.tokens[i];
             if (playerPosition === null) {
                 return this.tokens.splice(i, 1, currentPlayer);
+
+            } else {
+
+                return this.isFull()
+
             }
         }
     }
