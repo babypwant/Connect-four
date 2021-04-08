@@ -9,38 +9,50 @@ let game = undefined;
 
 
 const updateUI = () => {
-    for (let i = 0; i <= 5; i++) {
-        for (let j = 0; j <= 6; j++) {
-            let square = document.getElementById(`square-${i}-${j}`)
-            square.innerHTML = '';
-
-            //Call it on getToeknAt from game class
-
-            //the for loop is letting us place the value of a black token
-            //or red in the square
-
-            if (game.getTokenAt(j, i) === 1) {
-                const blackToken = document.createElement('div')
-                blackToken.setAttribute('class', 'token black');
-
-                square.appendChild(blackToken)
-            } else if (game.getTokenAt(j, i) === 2) {
-                const redToken = document.createElement('div')
-                redToken.setAttribute('class', 'token red');
-
-                square.appendChild(redToken);
-            }
-        }
-    }
-
-    //game.currentplayer is equal to 1 switch to red(which is player 2s color)
     if (game === undefined) {
-
         const boardHolder = document.getElementById('board-holder')
         boardHolder.setAttribute('class', 'is-invisible');
 
     } else {
-        //set the inner html gamenameID to 'gameName.value'
+
+        for (let i = 0; i <= 6; i++) {
+
+
+            let currentColumn = document.getElementById(`column-${i}`)
+
+
+            if (game.isColumnFull(i) === true) {
+
+                currentColumn.classList.add('full')
+
+
+            } else {
+                currentColumn.classList.remove('full')
+            }
+        }
+
+        for (let i = 0; i <= 5; i++) {
+
+            for (let j = 0; j <= 6; j++) {
+
+
+                let square = document.getElementById(`square-${i}-${j}`)
+                square.innerHTML = '';
+
+                if (game.getTokenAt(j, i) === 1) {
+                    const blackToken = document.createElement('div')
+                    blackToken.setAttribute('class', 'token black');
+
+                    square.appendChild(blackToken)
+                } else if (game.getTokenAt(j, i) === 2) {
+                    const redToken = document.createElement('div')
+                    redToken.setAttribute('class', 'token red');
+
+                    square.appendChild(redToken);
+                }
+
+            }
+        }
 
         const boardHolder = document.getElementById('board-holder')
         boardHolder.removeAttribute('class', 'is-invisible');
@@ -68,6 +80,8 @@ const updateUI = () => {
 
 
 
+
+
 }
 
 
@@ -77,15 +91,17 @@ const updateUI = () => {
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const clickTargets = document.getElementById('click-targets');
+    console.log(clickTargets)
     clickTargets.addEventListener('click', (event) => {
-        let playColumn = 0
+
         let currentTarget = event.target.id
-        if (currentTarget.includes('column-')) {
-            playColumn = Number.parseInt(currentTarget[currentTarget.length - 1])
+        if (!currentTarget.includes('column-')) {
+            return;
         }
 
+        let columnIndex = Number.parseInt(currentTarget[currentTarget.length - 1])
 
-        game.playInColumn(playColumn);
+        game.playInColumn(columnIndex);
 
         updateUI();
 

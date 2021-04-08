@@ -37,6 +37,14 @@ export class Game {
         return this.Column[columnPositionNumber].getTokenAt(rowPositionNumber)
 
     }
+
+    isColumnFull(Columnindex) {
+
+        return this.Column[Columnindex].isFull()
+
+    }
+
+
 }
 
 export class Column {
@@ -48,39 +56,44 @@ export class Column {
 
     isFull() {
 
-        for (let i = 0; i < this.tokens; i++) {
+        for (let i = 0; i < this.tokens.length; i++) {
 
 
-            if (this.tokens[i] !== null) {
+            if (this.tokens[i] === null) {
 
-                
 
+                return false;
             }
 
-        }
 
+
+        }
         return true;
 
     }
 
-    isColumnFull(Columnindex) {
 
-        isFull
 
-    }
+    add(currentPlayerNumber) {
 
-    add(currentPlayer) {
+        if (this.isFull()) {
+            return;
+
+        }
 
         for (let i = this.tokens.length - 1; i >= 0; i--) {
-            let playerPosition = this.tokens[i];
-            if (playerPosition === null) {
-                return this.tokens.splice(i, 1, currentPlayer);
 
-            } else {
+            if (this.tokens[i] === null) {
 
-                return this.isFull()
+                this.tokens[i] = currentPlayerNumber;
+                break;
 
             }
+
+
+
+
+
         }
     }
 
