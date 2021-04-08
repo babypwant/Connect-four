@@ -1,4 +1,4 @@
-import Game from './game.js'
+import {Game, Column} from './game.js'
 
 
 let game = undefined;
@@ -13,7 +13,7 @@ const updateUI = () => {
         for (let j = 0; j <= 6; j++) {
             let square = document.getElementById(`square-${i}-${j}`)
             square.innerHTML = '';
-            if (getToken(square) === 1) {
+            if (Column.getTokenAt(game.currentPlayer) === 1) {
                 const blackToken = document.createElement('div')
                 blackToken.setAttribute('class', 'token');
                 blackToken.setAttribute('class', 'black');
@@ -26,7 +26,7 @@ const updateUI = () => {
             }
         }
     }
-    
+
     //game.currentplayer is equal to 1 switch to red(which is player 2s color)
     if (game === undefined) {
 

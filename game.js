@@ -1,4 +1,4 @@
-export default class Game {
+export class Game {
     constructor(player1Name, player2Name, currentPlayer = 1) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
@@ -44,10 +44,8 @@ export class Column extends Game{
     }
 
     getTokenAt(rowPositionNumber) {
-
+        
         return this.tokens[rowPositionNumber]
-
-
 
     }
 
