@@ -9,6 +9,24 @@ let game = undefined;
 
 
 const updateUI = () => {
+    for (let i = 0; i <= 5; i++) {
+        for (let j = 0; j <= 6; j++) {
+            let square = document.getElementById(`square-${i}-${j}`)
+            square.innerHTML = '';
+            if (getToken(square) === 1) {
+                const blackToken = document.createElement('div')
+                blackToken.setAttribute('class', 'token');
+                blackToken.setAttribute('class', 'black');
+                square.appendChild(blackToken)
+            } else {
+                const redToken = document.createElement('div')
+                redToken.setAttribute('class', 'token');
+                redToken.setAttribute('class', 'red');
+                square.appendChild(redToken);
+            }
+        }
+    }
+    
     //game.currentplayer is equal to 1 switch to red(which is player 2s color)
     if (game === undefined) {
 
