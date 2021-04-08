@@ -78,8 +78,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const clickTargets = document.getElementById('click-targets');
     clickTargets.addEventListener('click', (event) => {
+        let playColumn = 0
+        let currentTarget = event.target.id
+        if(currentTarget.includes('column-')){
+         playColumn = Number.parseInt(currentTarget[currentTarget.length-1])
+        }
 
-        game.playInColumn();
+        console.log(playColumn)
+        game.playInColumn(playColumn);
 
         updateUI();
 

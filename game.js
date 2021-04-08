@@ -15,7 +15,9 @@ export class Game {
          after looping thru array use and finding the correct index, 
          call the add() on the index
         */
+       let currentColumn = this.column[index];
 
+        currentColumn.add(this.currentPlayer);
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
         } else if (this.currentPlayer === 2) {
